@@ -68,12 +68,11 @@ distribution.
 #if defined(_MSC_VER) && (_MSC_VER >= 1400 )
 	#include <stdlib.h>
 	typedef uintptr_t		MP_UPTR;
-#elif defined (__GNUC__) && (__GNUC__ >= 3 )
+#elif (defined (__GNUC__) && (__GNUC__ >= 3 )) || defined(__clang__)
 	#include <stdlib.h>
 	typedef uintptr_t		MP_UPTR;
 #else
-	// Assume not 64 bit pointers. Get a new compiler.
-	typedef unsigned MP_UPTR;
+	typedef size_t MP_UPTR;
 #endif
 
 namespace micropather
@@ -507,7 +506,7 @@ namespace micropather
 		unsigned frame;						// incremented with every solve, used to determine if cached data needs to be refreshed
 		PathCache* pathCache;
 	};
-};	// namespace grinliz
+}	// namespace grinliz
 
 #endif
 
