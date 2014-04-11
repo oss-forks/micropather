@@ -43,7 +43,6 @@ distribution.
 
 #include "micropather.h"
 
-using namespace std;
 using namespace micropather;
 
 class OpenQueue
